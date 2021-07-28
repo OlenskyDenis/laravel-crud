@@ -1,18 +1,17 @@
 <?php
 
+use App\Http\Controllers\DepartmantController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::view('/', 'pages.home')->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/employees', EmployeeController::class);
+
+Route::get('/departmants', [DepartmantController::class, 'index'])->name('departmants.index');
+Route::get('/departmants/create', [DepartmantController::class, 'create'])->name('departmants.create');
+Route::post('/departmants', [DepartmantController::class, 'store'])->name('departmants.store');
+Route::get('/departmants/{departmant}', [DepartmantController::class, 'show'])->name('departmants.show');
+Route::get('/departmants/{departmant}/edit', [DepartmantController::class, 'edit'])->name('departmants.edit');
+Route::put('/departmants/{departmant}', [DepartmantController::class, 'update'])->name('departmants.update');
+Route::delete('/departmants/{departmant}', [DepartmantController::class, 'destroy'])->name('departmants.destroy');
