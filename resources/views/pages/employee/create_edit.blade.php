@@ -79,7 +79,7 @@
         </select>
 
         <div>
-            <button type="submit">{{ isset($employee) ? 'Update' : 'Create' }}</button>
+            <button type="submit" class="btn btn-success">{{ isset($employee) ? 'Update' : 'Create' }}</button>
         </div>
     </form>
 @endsection

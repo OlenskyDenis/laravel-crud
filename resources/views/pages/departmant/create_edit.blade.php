@@ -27,7 +27,7 @@
                 type="text" class="form-control" id="departmant_name" placeholder="Name" >
         </div>
         <div>
-            <button type="submit">{{ isset($departmant) ? 'Update' : 'Create' }}</button>
+            <button type="submit" class="btn btn-success">{{ isset($departmant) ? 'Update' : 'Create' }}</button>
         </div>
     </form>
 @endsection

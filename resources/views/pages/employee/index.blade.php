@@ -39,11 +39,7 @@
                     <td>{{$employee->patronymic}}</td>
                     <td>{{$employee->gender}}</td>
                     <td>{{$employee->salary}}</td>
-                    <td>
-                        {{-- @foreach(explode('[]', $employee->departments) as $department) 
-                            {{ $department }}
-                        @endforeach --}}
-                        
+                    <td>                        
                         @foreach ($employee->departments as $department)
                             <span class="bg-primary text-white rounded-pill" style="margin: 0 5px;">{{ $department }}</span>
                         @endforeach
