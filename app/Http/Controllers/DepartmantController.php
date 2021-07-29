@@ -32,7 +32,7 @@ class DepartmantController extends Controller
         return redirect()->route('departmants.index');
     }
 
-    public function show($id)
+    public function show(Departmant $departmant)
     {
         //
     }
@@ -47,7 +47,7 @@ class DepartmantController extends Controller
     public function update(Request $request, Departmant $departmant)
     {
         $request->validate([
-            'name' => ['required', 'unique:departmants', 'max:255'],
+            'name' => ['required']
         ]);
 
         $departmant->update($request->only(['name']));

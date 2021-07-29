@@ -36,10 +36,10 @@
                     <td>{{$departmant->employees_count ?? 'none'}}</td>
                     <td>{{$departmant->top_salary ?? 'none'}}</td>
                     <td style="display: flex; justify-content: space-evenly;">
-                        <a class="btn btn-warning disabled" href="{{ route('departmants.edit', $departmant) }}">View</a>
-                        <a class="btn btn-primary" href="{{ route('departmants.edit', $departmant) }}">Edit</a>
+                        <a class="btn btn-warning disabled" href="{{ route('departmants.edit', $departmant->id) }}">View</a>
+                        <a class="btn btn-primary" href="{{ route('departmants.edit', $departmant->id) }}">Edit</a>
 
-                        <form method="POST" action="{{ route('departmants.destroy', $departmant) }}">
+                        <form method="POST" action="{{ route('departmants.destroy', $departmant->id) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" >Delete</button>

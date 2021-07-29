@@ -1,25 +1,16 @@
 @extends('layouts.main')
 
-@section('title', isset($departmant) ? 'Edit' . $departmant->name : 'Create departmant')
+@section('title', isset($departmant) ? 'Edit-' . $departmant->name : 'Create departmant')
 
 @section('custom-css')
 @endsection
 
 @section('content')
     @include('includes.error')
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
     <form method="POST"
         @if (isset($departmant))
-            action="{{ route('departmants.update', $departmant) }}"
+            action="{{ route('departmants.update', $departmant->id) }}"
         @else
             action="{{ route('departmants.store') }}"
         @endif>
@@ -36,7 +27,7 @@
                 type="text" class="form-control" id="departmant_name" placeholder="Name" >
         </div>
         <div>
-            <button type="submit">Create</button>
+            <button type="submit">{{ isset($departmant) ? 'Update' : 'Create' }}</button>
         </div>
     </form>
 @endsection

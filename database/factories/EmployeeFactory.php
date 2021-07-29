@@ -50,7 +50,7 @@ class EmployeeFactory extends Factory
             'patronymic' => $name,
             'gender' => $gender,
             'salary' => $salary,
-            'departments' => $departments,
+            'departments' => json_encode($departments),
             'created_at' => now(),
         ];
     }

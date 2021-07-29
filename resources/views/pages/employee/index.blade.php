@@ -44,16 +44,15 @@
                             {{ $department }}
                         @endforeach --}}
                         
-                        @foreach (explode(',', $employee->departments) as $department)
-                            
-                            <span class="bg-primary text-white rounded-pill" style="margin: 0 5px;">{{ str_replace(array("[","]",'"'), '', $department) }}</span>
+                        @foreach ($employee->departments as $department)
+                            <span class="bg-primary text-white rounded-pill" style="margin: 0 5px;">{{ $department }}</span>
                         @endforeach
                     </td>
                     <td style="display: flex; justify-content: space-evenly;">
-                        <a class="btn btn-warning disabled" href="{{ route('employees.edit', $employee) }}">View</a>
-                        <a class="btn btn-primary" href="{{ route('employees.edit', $employee) }}">Edit</a>
+                        <a class="btn btn-warning disabled" href="{{ route('employees.edit', $employee->id) }}">View</a>
+                        <a class="btn btn-primary" href="{{ route('employees.edit', $employee->id) }}">Edit</a>
 
-                        <form method="POST" action="{{ route('employees.destroy', $employee) }}">
+                        <form method="POST" action="{{ route('employees.destroy', $employee->id) }}">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger" >Delete</button>
